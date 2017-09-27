@@ -5,7 +5,9 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -p",
+    "prebuild": "rm -rf dist",
+    "build": "webpack -d",
+    "postbuild": "cp -R src/assets dist",
     "start": "export NODE_ENV=developemnt; webpack-dev-server -d"
   },
   "author": "",
