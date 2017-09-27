@@ -1,13 +1,8 @@
-html, body{
+html, body {
     height: 100%;
 }
 
 body {
-    // position: absolute;
-    // top: 0;
-    // right: 0;
-    // bottom: 0;
-    // left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +11,7 @@ body {
 }
 
 .chess-header {
- border: 1px solid red;
+    border: 1px solid red;
 }
 
 .chess-game {
@@ -24,9 +19,27 @@ body {
     max-width: 400px;
     width: 100%;
     border: 1px solid red;
-    
-} 
+    #chess-board {
+        display: flex;
+        flex-direction: column;
+        height: 400px;
+        border: 1px solid red;
+        .row {
+            display: flex;
+            flex: 1;
+            border: 1px solid blue;
+        }
+        .white-space {
+            flex: 1;
+            background: #fff;
+        }
+        .black-space {
+            flex: 1;
+            background: #000;
+        }
+    }
+}
 
 .chess-footer {
- border: 1px solid red;
+    border: 1px solid red;
 }
