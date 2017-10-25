@@ -463,20 +463,63 @@ body {
   max-width: 400px;
   width: 100%; }
   .chess-game #chess-board {
-    display: flex;
-    flex-direction: column; }
+    position: relative; }
+    .chess-game #chess-board .board {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column; }
     .chess-game #chess-board .image {
-      width: 100%;
-      border: 1px solid red; }
+      width: 100%; }
     .chess-game #chess-board .row {
       display: flex;
       flex: 1; }
     .chess-game #chess-board .white-space {
+      position: relative;
       flex: 1;
       background: #fff; }
     .chess-game #chess-board .black-space {
+      position: relative;
       flex: 1;
-      background: #000; }
+      background: #b1b1b1; }
+    .chess-game #chess-board .selected-wht {
+      background: #c6eafd; }
+    .chess-game #chess-board .selected-blk {
+      background: #78b2d3; }
+    .chess-game #chess-board .moves-wht {
+      background: #ceffce; }
+    .chess-game #chess-board .moves-blk {
+      background: #92d592; }
+    .chess-game #chess-board .attack-wht {
+      background: #facece; }
+    .chess-game #chess-board .attack-blk {
+      background: #dd9999; }
+    .chess-game #chess-board .chess-piece {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .chess-game #chess-board .chess-piece svg {
+        flex: 1; }
+    .chess-game #chess-board .king {
+      height: 90%; }
+    .chess-game #chess-board .queen {
+      height: 85%; }
+    .chess-game #chess-board .bishop {
+      height: 85%; }
+    .chess-game #chess-board .horse {
+      height: 85%; }
+    .chess-game #chess-board .rook {
+      height: 85%; }
+    .chess-game #chess-board .pawn {
+      height: 85%; }
 
 .chess-footer {
   border: 1px solid red; }

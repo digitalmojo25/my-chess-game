@@ -1,5 +1,5 @@
-import initBoard from './js/initBoard.js';
+import initGame from './js/initGame.js';
 
 import './sass/index.scss';
 
-initBoard();
+initGame();
