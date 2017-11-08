@@ -13,6 +13,8 @@ function validateMove(vector, board) {
         }
     });
     
+    
+    
     return found;
 }
 

@@ -5,7 +5,9 @@ import bishopMoves from './bishop';
 import horseMoves from './horse';
 import pawnMoves from './pawn';
 
-function moves (space, board) {
+// NOTE: king argument is for pawn moves
+
+function moves (space, board, king) {
     // console.log('moves', space);
     const vector = {};
     vector.x = Number(space.id.split(',')[0]);
@@ -18,7 +20,7 @@ function moves (space, board) {
     
     switch(piece) {
         case 'pawn':
-            moves = pawnMoves(vector, board);
+            moves = pawnMoves(vector, board, king);
             break;
         case 'rook':
             moves = rookMoves(vector, board);

@@ -11,7 +11,21 @@ body {
 }
 
 .chess-header {
-    border: 1px solid red;
+    display: flex;
+    padding: 10px 0;
+    border: 1px solid black;
+    .title {
+        flex: 1;
+        text-align: center;
+    }
+    .turn {
+        flex: 1;
+        text-align: center;
+    }
+    .time {
+        flex: 1;
+        text-align: center;
+    }
 }
 
 .chess-game {
@@ -79,28 +93,36 @@ body {
                 flex: 1;
             }
             
-           }
-           .king {
-               height: 90%;
-           }
+            .king {
+                height: 95%;
+            }
             .queen {
-               height: 85%;
-           }
-             .bishop {
-               height: 85%;
-           }
-             .horse {
-               height: 85%;
-           }
-             .rook {
-               height: 85%;
-           }
-             .pawn {
-               height: 85%;
-           }
+                height: 80%;
+            }
+            .bishop {
+                height: 80%;
+            }
+            .horse {
+                height: 80%;
+            }
+            .rook {
+                height: 80%;
+            }
+            .pawn {
+                height: 80%;
+            }
         }
     }
-
+    .confirmation {
+        display: flex;
+        .cancel {
+            flex: 1;
+        }
+        .confirm {
+            flex: 1;
+        }
+    }
+}
 
 .chess-footer {
     border: 1px solid red;

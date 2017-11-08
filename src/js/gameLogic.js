@@ -3,7 +3,8 @@ import moves from './moves';
 import movePiece from './utils/movePiece';
 
 const cancelBtn = document.querySelector('.cancel');
-const moveBtn = document.querySelector('.move');
+const confirmBtn = document.querySelector('.confirm');
+const turn = document.querySelector('.turn');
 
 function gameLogic (vector, board) {
     const space = board[vector.x][vector.y];
@@ -17,14 +18,17 @@ function gameLogic (vector, board) {
                 movePiece(board, state.previousPos, state.captured);
                 state.moved = false;
                 state.currPiece = '';
+                state.captured = ''; // add for canceling a captured piece
             }
             
-            moveBtn.onclick = function() {
+            confirmBtn.onclick = function() {
                 if (!state.moved) return;
                 state.currTurn = 'blk';
                 state.moved = false;
                 state.currPiece = '';
                 state.previousPos = '';
+                state.captured = '';
+                turn.innerHTML = 'Turn: Black';
             }
             
             break;
@@ -35,14 +39,17 @@ function gameLogic (vector, board) {
                 movePiece(board, state.previousPos, state.captured);
                 state.moved = false;
                 state.currPiece = '';
+                state.captured = ''; // add for canceling a captured piece
             }
             
-            moveBtn.onclick = function() {
+            confirmBtn.onclick = function() {
                 if (!state.moved) return;
                 state.currTurn = 'wht';
                 state.moved = false;
                 state.currPiece = '';
                 state.previousPos = '';
+                state.captured = '';
+                turn.innerHTML = 'Turn: White';
             }
             
             break;

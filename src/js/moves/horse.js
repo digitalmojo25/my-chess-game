@@ -58,32 +58,36 @@ function horseMoves (vector, board) {
     const e = { ...vector };
     (function () {
         e.y += 2;
-        if (!board[e.x - 1] || !board[e.x + 1]) return;
+        // if (!board[e.x - 1] || !board[e.x + 1]) return;
         
-        if (board[e.x - 1][e.y]) {
-            if (board[e.x - 1][e.y].children[0].id.includes(enemy)) {
-                spaceStyle(board[e.x - 1][e.y], 'attack');
-                moves.push({ x: e.x - 1, y: e.y });
-            }
-            if (board[e.x - 1][e.y].children[0].id === 'empty') {
-                spaceStyle(board[e.x - 1][e.y], 'moves');
-                moves.push({ x: e.x - 1, y: e.y });
+        if (board[e.x - 1]) {
+            if (board[e.x - 1][e.y]) {
+                if (board[e.x - 1][e.y].children[0].id.includes(enemy)) {
+                    spaceStyle(board[e.x - 1][e.y], 'attack');
+                    moves.push({ x: e.x - 1, y: e.y });
+                }
+                if (board[e.x - 1][e.y].children[0].id === 'empty') {
+                    spaceStyle(board[e.x - 1][e.y], 'moves');
+                    moves.push({ x: e.x - 1, y: e.y });
+                }
             }
         }
         
-        if (board[e.x + 1][e.y]) {
-            if (board[e.x + 1][e.y].children[0].id.includes(enemy)) {
-                spaceStyle(board[e.x + 1][e.y], 'attack');
-                moves.push({ x: e.x + 1, y: e.y });
-            }
-            if (board[e.x + 1][e.y].children[0].id === 'empty') {
-                spaceStyle(board[e.x + 1][e.y], 'moves');
-                moves.push({ x: e.x + 1, y: e.y });
+        if (board[e.x + 1]) {
+            if (board[e.x + 1][e.y]) {
+                if (board[e.x + 1][e.y].children[0].id.includes(enemy)) {
+                    spaceStyle(board[e.x + 1][e.y], 'attack');
+                    moves.push({ x: e.x + 1, y: e.y });
+                }
+                if (board[e.x + 1][e.y].children[0].id === 'empty') {
+                    spaceStyle(board[e.x + 1][e.y], 'moves');
+                    moves.push({ x: e.x + 1, y: e.y });
+                }
             }
         }
     })();
     
-    // south
+    // east
     // TODO: refactor nested ifs into functions... -zk
     const s = { ...vector };
     (function () {
@@ -107,27 +111,31 @@ function horseMoves (vector, board) {
         }
     })();
     
-    // west
+    // east
     // TODO: refactor nested ifs into functions... -zk
     const w = { ...vector };
     (function () {
         w.y -= 2;
-        if (!board[w.x - 1] || !board[w.x + 1]) return;
+        // if (!board[w.x - 1] || !board[w.x + 1]) return;
         
-        if (board[w.x - 1][w.y] && !board[w.x - 1][w.y].children[0].id.includes(color)) {
-            if (board[w.x - 1][w.y].children[0].id.includes(enemy)) {
-                enemyStyle(board[w.x - 1][w.y]);
+        if (board[w.x - 1]) {
+            if (board[w.x - 1][w.y] && !board[w.x - 1][w.y].children[0].id.includes(color)) {
+                if (board[w.x - 1][w.y].children[0].id.includes(enemy)) {
+                    enemyStyle(board[w.x - 1][w.y]);
+                }
+                emptyStyle(board[w.x - 1][w.y]);
+                moves.push({ x: w.x - 1, y: w.y });
             }
-            emptyStyle(board[w.x - 1][w.y]);
-            moves.push({ x: w.x - 1, y: w.y });
         }
         
-        if (board[w.x + 1][w.y] && !board[w.x + 1][w.y].children[0].id.includes(color)) {
-            if (board[w.x + 1][w.y].children[0].id.includes(enemy)) {
-                enemyStyle(board[w.x + 1][w.y]);
+        if (board[w.x + 1]) {
+            if (board[w.x + 1][w.y] && !board[w.x + 1][w.y].children[0].id.includes(color)) {
+                if (board[w.x + 1][w.y].children[0].id.includes(enemy)) {
+                    enemyStyle(board[w.x + 1][w.y]);
+                }
+                emptyStyle(board[w.x + 1][w.y]);
+                moves.push({ x: w.x + 1, y: w.y });
             }
-            emptyStyle(board[w.x + 1][w.y]);
-            moves.push({ x: w.x + 1, y: w.y });
         }
     })();
     
